@@ -1,2 +1,2 @@
-# fhleltar
-Futball Ház leltárprogram specifikáció
+# Futball Ház leltárprogram specifikáció
+
