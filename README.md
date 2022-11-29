@@ -1,17 +1,7 @@
 # Futball Ház leltárprogram specifikáció 
-## Kérdések
+## Döntést igénylő kérdések
 - a képeslapok képek vagy dokumentumok?
 - - - -
-
-## Általános leírás
-A Futball Hát leltárprogram egy egyedi igényekre szabott adatbázis-keretrendszer. A leltárprogram elsődleges funkciója a Kispesti Futball Ház állományában lévő tárgyak nyilvántartása. A leltárprogram másodlagos funkciója ezen tárgyak publikálásának, szélesebb nyilvánosság felé történő bemutatásának elősegítése.
-
-### Szószedet
-- rekord: a leltár egy eleme, ami lehet kép, tárgy vagy dokumentum
-- doboz: az adott leltári elem fizikai helye, ha a raktárban van
-- vitrin: az adott leltári elem fizikai helye, ha a kiállítótérben van
-- adatlap: az adott rekordhoz tartozó tárgyat bemutató oldal
-
 ## Tartalomjegyzék
 - Általános leírás
 	- Szószedet
@@ -26,17 +16,27 @@ A Futball Hát leltárprogram egy egyedi igényekre szabott adatbázis-keretrend
 	- Típus: dokumentum
 
 - - - -
+## Általános leírás
+A Futball Ház leltárprogram egy egyedi igényekre szabott adatbázis-keretrendszer. A leltárprogram elsődleges funkciója a Kispesti Futball Ház állományában lévő tárgyak nyilvántartása. A leltárprogram másodlagos funkciója ezen tárgyak publikálásának, szélesebb nyilvánosság felé történő bemutatásának elősegítése.
+
+### Szószedet
+- rekord: a leltár egy eleme, ami lehet kép, tárgy vagy dokumentum
+- doboz: az adott leltári elem fizikai helye, ha a raktárban van
+- vitrin: az adott leltári elem fizikai helye, ha a kiállítótérben van
+- adatlap: az adott rekordhoz tartozó tárgyat bemutató oldal
+
+- - - -
 ## Admin felület
 A leltárprogram elsődleges felülete az admin felület.
 A felhasználók ide jelentkeznek be, itt töltik fel és adminisztrálják a rekordokat.
 
 Az admin felület legfontosabb funkciói:
-	- autentikáció (bejelentkezés, kijelentkezés)
-	- saját profil módosítása -> jelszómódosítás
-	- rekordok létrehozása
-	- rekordok listázása
-	- rekordok szerkesztése
-	- [opcionális] felhasználókezelés
+- autentikáció (bejelentkezés, kijelentkezés)
+- saját profil módosítása -> jelszómódosítás
+- rekordok létrehozása
+- rekordok listázása
+- rekordok szerkesztése
+- [opcionális] felhasználókezelés
 
 ## Felhasználók, jogkezelés
 ### Általános leírás
@@ -85,24 +85,24 @@ Az egyes rekordoknak három láthatósági állapota létezik, amikre **kizáró
 
 ### Rekordok listázása
 A leltárprogram adminisztrációs felületén külön listák segítik a feltöltést végző felhasználókat:
-	1. befejezett feltöltések -> itt a véglegesített rekordokat listázzuk
-	2. nyitott feltöltések -> a véglegesítésre váró feltöltések
-	3. törölt feltöltések
+1. befejezett feltöltések -> itt a véglegesített rekordokat listázzuk
+2. nyitott feltöltések -> a véglegesítésre váró feltöltések
+3. törölt feltöltések
 
 ### Funkciók a rekordok listájában
 A rekordokat listázó felületen a felhasználók számára a következő lehetőségeket kell biztosítani:
-	1. új rekord hozzáadása -> egyetlen kérdés: a rekord típusa (kép, tárgy, dokumentum)
-	2. rekord egyértelmű beazonosítása legalább a következő elemekkel:
-		1. ID
-		2. rekord típusa (kép, tárgy, dokumentum)
-		3. rekord neve (a megnevezés)
-		4. rekord helye (dobozID)
-		5. rekord pozíciója (vitrinID)
-		6. rekord láthatósága
-	3. szerkesztés gomb -> a rekord feltöltési/szerkesztési oldalára visz
-	4. rekord adatlapja -> a rekord adatlapjára viszi
-	5. táblázatfejlécben rendezési lehetőség
-	6. az adminisztrációs lapon keresési lehetőség (szabadszavas)
+1. új rekord hozzáadása -> egyetlen kérdés: a rekord típusa (kép, tárgy, dokumentum)
+2. rekord egyértelmű beazonosítása legalább a következő elemekkel:
+	1. ID
+	2. rekord típusa (kép, tárgy, dokumentum)
+	3. rekord neve (a megnevezés)
+	4. rekord helye (dobozID)
+	5. rekord pozíciója (vitrinID)
+	6. rekord láthatósága
+3. szerkesztés gomb -> a rekord feltöltési/szerkesztési oldalára visz
+4. rekord adatlapja -> a rekord adatlapjára viszi
+5. táblázatfejlécben rendezési lehetőség
+6. az adminisztrációs lapon keresési lehetőség (szabadszavas)
 
 ### Rekordok adatlapja
 A rekord adatlapja egy egyedi stíluslappal ellátott oldal, ahol az adott rekord adatait meg lehet tekinteni. -> A későbbi publikálás alapját ezek az oldalak képezik.
@@ -110,20 +110,20 @@ A rekord adatlapja egy egyedi stíluslappal ellátott oldal, ahol az adott rekor
 A rekordok adatlapját a rekordok listájából lehet elérni. Az egyes rekordok adatlapjaihoz csak az arra jogosult felhasználók férhetnek hozzá.
 
 A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek közvetlenül a rekordhoz köthetők, tehát
-	- a rekordot adminisztráló felhasználók adatai nem
-	- a rekordhoz tartozó státusz és egyéb információk nem
-	- a rekord fizikai helyéből csak a vitrin azonosítója.
-		- **ha** egy rekord tárgya nincs vitrinben, akkor `raktárban` felirat olvasható helyette.
-	- [opcionális] nyomtatási kép -> a rekord adatlapját böngésző felhasználó másolatot készíthet magának (PDF exportálás)
+- a rekordot adminisztráló felhasználók adatai nem
+- a rekordhoz tartozó státusz és egyéb információk nem
+- a rekord fizikai helyéből csak a vitrin azonosítója.
+	- **ha** egy rekord tárgya nincs vitrinben, akkor `raktárban` felirat olvasható helyette.
+- [opcionális] nyomtatási kép -> a rekord adatlapját böngésző felhasználó másolatot készíthet magának (PDF exportálás)
 
 - - - -
 ## Adattípusok
 ### Közös blokk
 A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és szerkesztése oldalon.
-	- rekord láthatóságának beállítása
-	- rekord véglegesítése váltókapcsoló
-	- mentés
-	- törlés
+- rekord láthatóságának beállítása
+- rekord véglegesítése váltókapcsoló
+- mentés
+- törlés
 
 ### Közös blokk / előzmények
 - [opcionális] a rekordoknál megjelenítésre kerül a rekord története:
