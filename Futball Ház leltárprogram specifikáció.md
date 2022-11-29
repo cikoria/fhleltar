@@ -5,7 +5,7 @@
 ### Keretrendszer
 	- jogkezelés, felhasználók típusai
 	- admin felület
-	- [rekordok státuszai, listázása, adatlapja](README.md)
+	- [rekordok státuszai, listázása, adatlapja](./README.md)
 	- rekord adatlapja 
 		- publikus (publikálási lehetőség biztosítása -> egyedi adatlap formátumát definiálni)
 		- kutatói
