@@ -206,7 +206,7 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 6. [opcionális] a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
 
 ```
-+ rekord hozzáadása                                keresés ................
++ rekord hozzáadása                                keresés: ...............
 
 | ID    | típus      | név                | doboz  | pozíció | láthatóság |
 |-------|------------|--------------------|--------|---------|------------|---
