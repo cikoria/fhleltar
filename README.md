@@ -2,19 +2,19 @@
 
 ## TODO
 
-- [ ] (!!!) (típus) az egyes tárgyfajták legteljesebb körét meghatározni és besorolni
-- [ ] (!!!) (típus) a típusokat leíró mezőket meghatározni
-- [ ] (típus) a képeslapok képek vagy dokumentumok?
-- [ ] (admin) a törölt rekordok listázását újragondolni
-- [ ] (admin) rekord létrehozása oldalt kitalálni
-- [x] (admin) elsődleges kép kijelölésének lehetősége -> adatlapon ez jelenik meg fő képként
-- [x] (admin) feltöltött kép törlésének lehetősége
-- [ ] tárgy pozícióját áttervezni:
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/2) (!!!) (típus) az egyes tárgyfajták legteljesebb körét meghatározni és besorolni
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/3) (!!!) (típus) a típusokat leíró mezőket meghatározni
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/4) (típus) a képeslapok képek vagy dokumentumok?
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/5) (admin) a törölt rekordok listázását újragondolni
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/6) (admin) rekord létrehozása oldalt kitalálni
+- [x] [issue](https://github.com/cikoria/fhleltar/issues/11) (admin) elsődleges kép kijelölésének lehetősége -> adatlapon ez jelenik meg fő képként
+- [x] [issue](https://github.com/cikoria/fhleltar/issues/10) (admin) feltöltött kép törlésének lehetősége
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/1) tárgy pozícióját áttervezni:
    1. választás: raktár / vitrin / kölcsön
    2. szöveges: dobozID / vitrinID / kölcsönzés helye
-- [ ] tárgy keletkezési idejét egyszerűsíteni
-- [ ] tárgyak ID-jának szerkezetét kitalálni -> milyen megoldások vannak múzeumokban?
-- [ ] fizikai ID-kat kitalálni (doboz, vitrin, etc)
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/7) tárgy keletkezési idejét egyszerűsíteni
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/8) tárgyak ID-jának szerkezetét kitalálni -> milyen megoldások vannak múzeumokban?
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/9) fizikai ID-kat kitalálni (doboz, vitrin, etc) 
 
 - - - -
 
@@ -183,9 +183,8 @@ Feltöltött állomány1 [elsődleges] (X) [törlés]
 Feltöltött állományN [elsődleges] ( ) [törlés]
 ------------------------------------------------
 Láthatóság [zárt|kutatható|publikus] 
-Végleges [I|N] 
-[Mentés]
-[Törlés]
+Véglegesítés [I|N] 
+[Mentés] [Törlés]
 ------------------------------------------------
 Rekordot létrehozta: user, dátum
 Utolsó módosítás: user, dátum
