@@ -6,9 +6,9 @@
 - [ ] (!!!) (típus) a típusokat leíró mezőket meghatározni
 - [ ] (típus) a képeslapok képek vagy dokumentumok?
 - [ ] (admin) a törölt rekordok listázását újragondolni
-- [x] (admin) rekord létrehozása oldalt kitalálni
+- [ ] (admin) rekord létrehozása oldalt kitalálni
 - [x] (admin) elsődleges kép kijelölésének lehetősége -> adatlapon ez jelenik meg fő képként
-- [ ] (admin) feltöltött kép törlésének lehetősége
+- [x] (admin) feltöltött kép törlésének lehetősége
 - [ ] tárgy pozícióját áttervezni:
    1. választás: raktár / vitrin / kölcsön
    2. szöveges: dobozID / vitrinID / kölcsönzés helye
@@ -24,10 +24,9 @@
   - [Szószedet](#szószedet)
 - [Admin felület](#admin-felület)
   - [Rekord létrehozása/szerkesztése](#rekord-létrehozásaszerkesztése)
-  - [Felhasználók, jogkezelés](#felhasználói-kategóriák-és-jogosultságaik)
+  - [Felhasználók, jogkezelés](#felhaszn%C3%A1l%C3%B3i-kateg%C3%B3ri%C3%A1k-%C3%A9s-jogosults%C3%A1gok)
   - [Rekordok státuszai, listázása, adatlapja](#rekordok-státuszai-listázása-adatlapja)
 - [Adattípusok](#adattípusok)
-  - [Közös blokk](#közös-blokk)
   - [Típus: kép](#típus-kép)
   - [Típus: tárgy](#típus-tárgy)
   - [Típus: dokumentum](#típus-dokumentum)
@@ -84,12 +83,12 @@ A felhasználók számára kilistázott rekordok **két helyen** kattinthatóak:
 - a rekord végén lévő `szerkesztés` gombra kattintva a rekord létrehozó/szerkesztő oldalára navigál.
 
 ```
-FHleltár     |                                    logout  ... |
--------------|------------------------------------------- ... |
-Profil       | | ID    | típus      | név                 ... |
-Rerkordok    | |-------|------------|-------------------- ... |
-Véglegesítés | | fh235 | fotó       | Csapatkép 1929-ből  ... |
-Törölt       | | fh236 | dokumentum | Fegyelmi határozat  ... |
+FHleltár       |                                    logout  ... |
+---------------|------------------------------------------- ... |
+Profil >       | | ID    | típus      | név                 ... |
+Rerkordok >    | |-------|------------|-------------------- ... |
+Véglegesítés > | | fh235 | fotó       | Csapatkép 1929-ből  ... |
+Törölt >       | | fh236 | dokumentum | Fegyelmi határozat  ... |
 ```
 
 ### Rekord létrehozása/szerkesztése
@@ -104,27 +103,66 @@ A három rekordtípusnak (kép, tárgy, dokumentum) némileg eltérő a létreho
 
 A rekordoktípusok létrehozásához tartozó mezők specifikációját lásd a dokumentum [Adattípusok](#adattípusok) fejezetében.
 
+#### Szerkesztő blokk
+
+A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és szerkesztése oldalon.
+
+- rekord láthatóságának beállítása (zárt, kutatható, publikus)
+- rekord véglegesítése váltókapcsoló
+- mentés
+- törlés
+
+##### Rekord / előzmények
+
+- **[opcionális]** a rekordoknál megjelenítésre kerül a rekord története:
+  - ki hozta létre a rekordot és mikor
+  - ki szerkesztette utoljára a rekordot és mikor
+  - **[opcionális]** a szerkesztési előzmények listázása -> user és dátum
+
 #### Bináris állományok kezelée
 
 A rekord létrehozása/szerkesztése oldalon történik a bináris állományok (képek, dokumentumok) kezelése. A felhasználóknak itt lehetősége kell legyen:
 
 - feltölteni egy vagy több bináris állományt,
 - megjelölni az egyik bináris állományt, mint elsődleges állomány,
-- törölni egy feltöltött bináris állományt.
+- törölni egy feltöltött bináris állományt. (A törölt állományt felesleges megtartani.)
 
 A későbbiekben az elsődlegesnek megjelölt bináris állomány fog szerepelni a rekord adatlapján kiemelt állományként (praktikusan képként).
+
+```
+Rekord létrehozása/szerkesztése
+------------------------------------------------
+
+ID: fh235 [szerkesztés]
+Megnevezés: ....................
+(...)
+(...)
+------------------------------------------------
+[Állomány feltöltése]
+Feltöltött állomány1 [elsődleges] (X) [törlés]
+(...)
+Feltöltött állományN [elsődleges] ( ) [törlés]
+------------------------------------------------
+Láthatóság [zárt | kutatható | publikus] 
+Végleges [I | N] 
+[Mentés]
+[Törlés]
+------------------------------------------------
+Rekordot létrehozta: user, dátum
+Utolsó módosítás: user, dátum
+```
 
 ### Felhasználók, jogkezelés
 
 **Nem fontos ehhez admin frontendet írni, bőven elég kézzel editálni a usereket.**
 
-A felhasználók email-címmel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
+A felhasználók felhasználónévvel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
 
-#### Felhasználói kategóriák és jogosultságaik
+#### Felhasználói kategóriák és jogosultságok
 
 - adminisztrátor
   - bejelentkezés
-  - **[opcionális]** admin frontend esetén: felhasználó létrehozása és jogosultságának megadása
+  - **[opcionális]** felhasználók: felhasználó létrehozása, listázása, jogosultságának megváltoztatása
   - rekord létrehozása, feltöltés megkezdése, mentése
   - rekord végelegesítése,
   - véglegesített rekord státuszának megváltoztatása nem véglegesre
@@ -206,13 +244,15 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 6. [opcionális] a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
 
 ```
-+ rekord hozzáadása                                keresés: ...............
+[+ rekord hozzáadása]                      [mező^] keresés: ...............
 
 | ID    | típus      | név                | doboz  | pozíció | láthatóság |
 |-------|------------|--------------------|--------|---------|------------|---
 | fh235 | kép        | Csapatkép 1929-ből | dob045 | vitN3   | publikus   | E
 | fh236 | dokumentum | Fegyelmi határozat | dob012 |         | kutatható  | E
 | fh237 | tárgy      | Bozsik-féle váza   | dob004 |         | zárt       | E
+
+elemszám: [20^]
 ```
 
 #### Rekordok adatlapja
@@ -223,8 +263,8 @@ A rekordok adatlapját a rekordok listájából lehet elérni. Az egyes rekordok
 
 A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek közvetlenül a rekordhoz köthetők, tehát
 
-- a rekordot adminisztráló felhasználók adatai nem
-- a rekordhoz tartozó státusz és egyéb információk nem
+- a rekordot adminisztráló felhasználók adatai **nem**
+- a rekordhoz tartozó státusz és egyéb információk **nem**
 - a rekord fizikai helyéből csak a vitrin azonosítója.
   - **HA** egy rekord tárgya nincs vitrinben, akkor `raktárban` felirat olvasható helyette.
 - **[opcionális]** nyomtatási kép, vagy valami egyszerű sablon -> a rekord adatlapját böngésző felhasználó másolatot készíthet magának (PDF exportálás)
@@ -233,21 +273,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 
 ## Adattípusok
 
-### Közös blokk
-
-A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és szerkesztése oldalon.
-
-- rekord láthatóságának beállítása (zárt, kutatható, publikus)
-- rekord véglegesítése váltókapcsoló
-- mentés
-- törlés
-
-#### Közös blokk / előzmények
-
-- **[opcionális]** a rekordoknál megjelenítésre kerül a rekord története:
-  - ki hozta létre a rekordot és mikor
-  - ki szerkesztette utoljára a rekordot és mikor
-  - **[opcionális]** a szerkesztési előzmények listázása -> user és dátum
+[opcionális] Minden rekordokhoz tartozik egy **leírás mező**, amely hosszú szöveget tartalmaz. Mivel ez a mező szolgálna az adott rekord részletes leírására, jó lenne, ha támogatna pár alapvető formázási lehetőséget: paragrafus, félkövér betű, dőlt betű.
 
 ### Típus: kép
 
@@ -305,7 +331,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
     - **HA NEM**:
       - év: szám
       - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
-- **a tárgyho köthető emberek**: szöveg (pl. Tichy Lajos)
+- **a tárgyhoz köthető emberek**: szöveg (pl. Tichy Lajos)
   - név1 / név2 / … / névN
 - **hiányzó adat**: igen/nem (ha a tárgyról nem tudunk valami komolyabbat, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
