@@ -3,11 +3,21 @@
 ## Tartalomjegyzék
 
 - [Általános leírás](#általános-leírás)
+  - [Alapfiunkciók](#alapfunkciók)
   - [Szószedet](#szószedet)
 - [Admin felület](#admin-felület)
   - [Felhasználók, jogkezelés](#felhaszn%C3%A1l%C3%B3i-kateg%C3%B3ri%C3%A1k-%C3%A9s-jogosults%C3%A1gok)
+    - [Felhasználói kategóriák és jogosultságok](#felhasználói-kategóriák-és-jogosultságok)
   - [Rekord létrehozása/szerkesztése](#rekord-létrehozásaszerkesztése) 
+    - [Szerkesztő blokk](#szerkesztő-blokk)
+    - [Bináris állományok kezelése](#bin%C3%A1ris-%C3%A1llom%C3%A1nyok-kezel%C3%A9se)
+    - [Sematikus ábra](#sematikus-ábra)
   - [Rekordok státuszai, listázása, adatlapja](#rekordok-státuszai-listázása-adatlapja)
+    - [Rekordok státuszai](#rekordok-státuszai)
+    - [Rekordok láthatósága](#rekord-láthatósága)
+    - [Rekordok listázása](#rekordok-listázása)
+    - [Funkciók a rekordok listában](#funkciók-a-rekordok-listájában)
+    - [Rekordok adatlapja](#rekordok-adatlapja)
 - [Adattípusok](#adattípusok)
   - [Típus: kép](#típus-kép)
   - [Típus: tárgy](#típus-tárgy)
@@ -154,7 +164,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
   - ki szerkesztette utoljára a rekordot és mikor
   - **[opcionális]** a szerkesztési előzmények listázása -> user és dátum
 
-#### Bináris állományok kezelée
+#### Bináris állományok kezelése
 
 A rekord létrehozása/szerkesztése oldalon történik a bináris állományok (képek, dokumentumok) kezelése. A felhasználóknak itt lehetősége kell legyen:
 
