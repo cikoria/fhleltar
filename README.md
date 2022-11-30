@@ -132,10 +132,20 @@ A rekordokat listázó felületen a felhasználók számára a következő lehet
    4. rekord helye (dobozID)
    5. rekord pozíciója (vitrinID)
    6. rekord láthatósága
-3. szerkesztés gomb -> a rekord feltöltési/szerkesztési oldalára visz
-4. rekord adatlapja -> a rekord adatlapjára viszi
-5. táblázatfejlécben rendezési lehetőség
-6. az adminisztrációs lapon keresési lehetőség (szabadszavas)
+   7. szerkesztés gomb -> a rekord feltöltési/szerkesztési oldalára visz
+3. rekord adatlapja -> (a rekordon bárhova kattintva) a rekord adatlapjára viszi
+4. táblázatfejlécben rendezési lehetőség
+5. az adminisztrációs lapon keresési lehetőség (szabadszavas)
+
+```
++ rekord hozzáadása                                keresés ................
+
+| ID    | típus      | név                | raktár | pozíció | láthatóság |
+|-------|------------|--------------------|--------|---------|------------|---
+| fh235 | kép        | Csapatkép 1929-ből | dob045 | vitN3   | publikus   | E
+| fh236 | dokumentum | Fegyelmi határozat | dob012 |         | kutatható  | E
+| fh237 | tárgy      | Bozsik-féle váza   | dob004 |         | zárt       | E
+```
 
 ### Rekordok adatlapja
 
