@@ -21,6 +21,28 @@ A Futball Ház leltárprogram egy egyedi igényekre szabott adatbázis-keretrend
 
 **[!!!]** A specifikáció **[opcionális]** címkével jelöli az **alacsony prioritású** fejlesztési feladatokat. Ezek nélkül a rendszer működőképes, legfeljebb pár funkció eléréséhez fejlesztőre lesz szükség.
 
+### Alapfunkciók
+
+Alapfunkciónak nevezzük azokat a funkciókat, amelyekre mindenképp szükség van ahhoz, hogy a rendszert működőnek tekinthessük.
+
+- Fázis 1. (alapfunkciók)
+  - felhasználók autentikációja (be- és kijelentkezés)
+  - egyetlen felhasználótípus van: adminisztrátor
+  - új rekord létrehozása és mentése, benne a bináris állományok feltöltésének
+ lehetőségével
+  - rekord törlése
+  - rekordok listázása
+- Fázis 2. 
+  - új felhasználótípus: látogató
+  - adatlap létrehozása
+  - rekordok láthatóságának figyelembe vétele
+  - rekordok listázásánál a felhasználótípus figyelembe vétele
+- Fázis 3.
+  - új felhasználótípus: feltöltő
+  - rekord véglegesíte kapcsoló figyelembe vétele
+- Fázis 4.
+- Fázis 5.
+
 ### Szószedet
 
 - rekord: a leltár egy eleme, ami lehet kép, tárgy vagy dokumentum
@@ -233,7 +255,8 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 4. táblázatfejlécben rendezési lehetőség
 5. az adminisztrációs lapon keresési lehetőség (szabadszavas)
    1. **[opcionális]** a keresőmező mellett egy legördülő listából kiválasztható, hogy a felhasználó pontosan melyik mezőben szeretne keresni (például: címkék)
-6. **[opcionális]** a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
+6. lapozási lehetőség -> ha túl sok a megjeleníthető rekord, akkor a felhasználók lapozhassanak a listázott elemek között
+7. **[opcionális]** a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
 
 ```
 [+ rekord hozzáadása]                      [mező^] keresés: ...............
@@ -244,14 +267,14 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 | fh236 | dokumentum | Fegyelmi határozat | dob012 |         | kutatható  | E
 | fh237 | tárgy      | Bozsik-féle váza   | dob004 |         | zárt       | E
 
-elemszám: [20^]
+elemszám: [20^]              « < - > »
 ```
 
 #### Rekordok adatlapja
 
 A rekord adatlapja egy egyedi stíluslappal ellátott oldal, ahol az adott rekord adatait meg lehet tekinteni. -> A későbbi publikálás alapját ezek az oldalak képezik.
 
-A rekordok adatlapját a rekordok listájából lehet elérni. Az egyes rekordok adatlapjaihoz csak az arra jogosult felhasználók férhetnek hozzá.
+A rekordok adatlapját a rekordok listájából lehet elérni. Mivel a listák eleve jogkezelést alkalmaznak, így az egyes rekordok adatlapjaihoz csak az arra jogosult felhasználók férhetnek hozzá.
 
 A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek közvetlenül a rekordhoz köthetők, tehát
 
