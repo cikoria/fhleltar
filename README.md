@@ -1,8 +1,12 @@
 # Futball Ház leltárprogram specifikáció
 
-## Döntést igénylő kérdések
+## TODO
 
-- a képeslapok képek vagy dokumentumok?
+- [ ] (típus) a képeslapok képek vagy dokumentumok?
+- [ ] tárgy pozícióját áttervezni:
+   1. választás: raktár / vitrin / kölcsön
+   2. szöveges: dobozID / vitrinID / kölcsönzés helye
+- [ ] tárgy keletkezési idejét egyszerűsíteni
 
 - - - -
 
@@ -63,7 +67,7 @@ A felhasználók email-címmel és jelszóval jelentkeznek be. A rendszer a felh
   - bejelentkezés
   - [opcionális] admin frontend esetén: felhasználó létrehozása és jogosultságának megadása
   - rekord létrehozása, feltöltés megkezdése, mentése
-  - rekord végelegesítése, 
+  - rekord végelegesítése,
   - véglegesített rekord státuszának megváltoztatása nem véglegesre
   - rekord törlése
   - **publikus**, **kutatható** és **zárt** rekordok listázása
@@ -140,7 +144,7 @@ A rekordokat listázó felületen a felhasználók számára a következő lehet
 ```
 + rekord hozzáadása                                keresés ................
 
-| ID    | típus      | név                | raktár | pozíció | láthatóság |
+| ID    | típus      | név                | doboz  | pozíció | láthatóság |
 |-------|------------|--------------------|--------|---------|------------|---
 | fh235 | kép        | Csapatkép 1929-ből | dob045 | vitN3   | publikus   | E
 | fh236 | dokumentum | Fegyelmi határozat | dob012 |         | kutatható  | E
@@ -205,8 +209,9 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - **kép készítésének ideje**:
   - bizonytalan: igen/nem
     - **HA IGEN**: szöveg (megközelítőleg)
-  - év: szám
-  - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
+    - **HA NEM**:
+      - év: szám
+      - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
 - **képen szereplő emberek**: szöveg (egyelőre!, aztán később ezekből is adatbázis lesz, de mivel nincs névadatbázisunk, ezt majd utólag javítjuk) -> képeslapnál: felismerhető aláírások
   - név1
   - név2
@@ -239,8 +244,9 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - **tárgy keletkezésének ideje**:
   - bizonytalan: igen/nem
     - **HA IGEN**: szöveg (megközelítőleg)
-  - év: szám
-  - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
+    - **HA NEM**:
+      - év: szám
+      - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
 - **tárgyhoz köthető emberek**: szöveg (pl. Tichy Lajos)
 - **hiányzó adat**: igen/nem (ha a tárgyról nem tudunk valami komolyabbat, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
@@ -270,8 +276,9 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - **dokumentum keletkezésének ideje**:
   - bizonytalan: igen/nem
     - **HA IGEN**: szöveg (megközelítőleg)
-  - év: szám
-  - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
+    - **HA NEM**:
+      - év: szám
+      - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
 - **dokumentumhoz köthető emberek**: szöveg (pl. Tichy Lajos)
   - név1
   - név2
