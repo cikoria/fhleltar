@@ -117,7 +117,7 @@ A felhasználók email-címmel és jelszóval jelentkeznek be. A rendszer a felh
   - rekord létrehozása, feltöltés megkezdése, mentése
   - nem véglegesített rekordok szerkesztése
   - **publikus**, **kutatható** és **zárt** rekordok listázása
-- kutató
+- **[opcionális]** kutató
   - bejelentkezés
   - **publikus** és **kutatható** rekordok listázása
 - látogató
@@ -146,7 +146,7 @@ Az egyes rekordoknak három láthatósági állapota létezik, amikre **kizáró
 A rekordokat a felhasználók a leltárprogram admin felületén listázhatják ki, és az egyes rekordokra kattintva a rekord adatlapjára kerülnek. A felhasználói jogosultságok növekményesek, vagyis az egyes szintekhez hozzátartoznak az összes alacsonyabb szint jogosultságai is.
 
 1. zárt -> kizárólag az adminisztrátor és feltöltő jogosultságú felhasználók számára kerül listázásra.
-2. kutatható -> a legalább kutató jogosultságú felhasználók számára kerül listázásra.
+2. **[opcionális]** kutatható -> a legalább kutató jogosultságú felhasználók számára kerül listázásra.
 3. publikus rekord -> minden felhasználó számára listázásra kerül.
 
 A pubkikus rekord az alapértelmezett.
