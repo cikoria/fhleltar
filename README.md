@@ -257,16 +257,10 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
       - év: szám
       - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
 - **képen szereplő emberek**: szöveg (egyelőre!, aztán később ezekből is adatbázis lesz, de mivel nincs névadatbázisunk, ezt majd utólag javítjuk) -> képeslapnál: felismerhető aláírások
-  - név1
-  - név2
-  - …
-  - névN
+  - név1 / név2 / … / névN
 - **hiányzó adat**: igen/nem (ha a képen nem mindenkit sikerült felismerni, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
-  - címke1
-  - címke2
-  - …
-  - címkeN
+  - címke1 / címke2 / … / címkeN
 - **leírás**: hosszú szöveg (szabadszavas mező)
 
 ## Típus: tárgy
@@ -274,7 +268,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - **ID**:
 - **tárgy megnevezése**: szöveg
 - **tárgy képe**: bináris (fotók a tárgyról)
-  - kép1/kép2/…/képN
+  - kép1 / kép2 / … / képN
 - **tárgy helye**: dobozID/albumID, szöveg (vagyis ahol fizikailag tároljuk a tárgyat) -> ezeket az ID-kat mi határozzuk majd meg!
 - **tárgy pozíciója**:
   - dobozban: igen/nem
@@ -291,13 +285,11 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
     - **HA NEM**:
       - év: szám
       - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
-- **tárgyhoz köthető emberek**: szöveg (pl. Tichy Lajos)
+- **a tárgyho köthető emberek**: szöveg (pl. Tichy Lajos)
+  - név1 / név2 / … / névN
 - **hiányzó adat**: igen/nem (ha a tárgyról nem tudunk valami komolyabbat, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
-  - címke1
-  - címke2
-  - …
-  - címkeN
+  - címke1 / címke2 / … / címkeN
 - **leírás**: hosszú szöveg (szabadszavas mező)
 
 ## Típus: dokumentum
@@ -305,7 +297,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - **ID**:
 - **dokumentum megnevezése**: szöveg
 - **dokumentum**: bináris (maga a dokumentum)
-  - dok1/dok2/…/dokN
+  - dok1 / dok2 / … / dokN
 - **karakterfelismerés**: igen/nem (ha a dokumentumon elvégeztük a karakterfelismerést, akkor igen) -> **fontos**: a dokumentumnál lehetőséget kell biztosítani a cserére (törlésre), valamint a dokumentumok listázására (előfordulhat, hogy több verzióban fog felkerülni)
 - **dokumentum helye**: dobozID/albumID, szöveg (vagyis ahol fizikailag tároljuk a tárgyat) -> ezeket az ID-kat mi határozzuk majd meg!
 - **dokumentum pozíciója**:
@@ -324,14 +316,8 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
       - év: szám
       - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
 - **dokumentumhoz köthető emberek**: szöveg (pl. Tichy Lajos)
-  - név1
-  - név2
-  - …
-  - névN
+  - név1 / név2 / … / névN
 - **hiányzó adat**: igen/nem (ha a dokumentumról nem tudunk valami komolyabbat, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
-  - címke1
-  - címke2
-  - …
-  - címkeN
+  - címke1 / címke2 / … / címkeN
 - **leírás**: hosszú szöveg (szabadszavas mező)
