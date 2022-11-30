@@ -2,6 +2,8 @@
 
 ## TODO
 
+- [ ] (!!!) (típus) az egyes tárgyfajták legteljesebb körét meghatározni és besorolni
+- [ ] (!!!) (típus) a típusokat leíró mezőket meghatározni
 - [ ] (típus) a képeslapok képek vagy dokumentumok?
 - [ ] (admin) a törölt rekordok listázását újragondolni
 - [ ] (admin) rekord létrehozása oldalt kitalálni
