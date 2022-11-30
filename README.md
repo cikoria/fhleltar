@@ -49,15 +49,15 @@ Az admin felület sematikus felépítése:
 
 - fejléc: kijelentkezés
 - bal oldalon: menürendszer
-  - [opcionális] profil
+  - **[opcionális]** profil
   - rekordok: a leltárban lévő **véglegesített** rekordok listája
   - véglegesítés: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
-  - [opcionális] törölt: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
+  - **[opcionális]** törölt: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
 - jobb oldalt: menürendszerben navigálástól függő tartalom
-  - [opcionális] profil: jelszóváltoztatási lehetőség
+  - **[opcionális]** profil: jelszóváltoztatási lehetőség
   - rekordok: a felhasználó jogosultságának megfelelő rekordok listázása, illetve, ha a jogosultsága engedi, akkor az oldalon atkív `új rekord` létrehozása gomb
   - véglegesítés: a felhasználó jogosultságának megfelelő rekordok listázása, valamint az oldalon atkív `új rekord` létrehozása gomb. Az erre jogosult felhasználók itt véglegesíthetik a feltöltött rekordokat, amelyek ezt követően kerülnek át a zárt/kutatható/publikus kategóriákba.
-  - [opcionális] törölt: a felhasználó jogosultságának megfelelő rekordok listázása. Az erre jogosult felhasználók itt állíthatják vissza a törölt rekordokat.
+  - **[opcionális]** törölt: a felhasználó jogosultságának megfelelő rekordok listázása. Az erre jogosult felhasználók itt állíthatják vissza a törölt rekordokat.
 
 A felhasználók számára kilistázott rekordok **két helyen** kattinthatóak:
 
@@ -75,11 +75,11 @@ Törölt >       | | fh236 | dokumentum | Fegyelmi határozat  ... |
 
 ### Felhasználók, jogkezelés
 
-[opcionális] A felhasználók felhasználónévvel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
+**[opcionális]** A felhasználók felhasználónévvel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
 
 #### Felhasználói kategóriák és jogosultságok
 
-[opcionális] Az admin felületen az adminisztrátor jogkörű felhsználók létrehozhatnak adott jogkörökkel új felhasználókat. Ennek a felületnek a megléte **nem prioritás**, bőven elégséges, ha adatbázisban létrehozhatók a felhasználók.
+**[opcionális]** Az admin felületen az adminisztrátor jogkörű felhsználók létrehozhatnak adott jogkörökkel új felhasználókat. Ennek a felületnek a megléte **nem prioritás**, bőven elégséges, ha adatbázisban létrehozhatók a felhasználók.
 
 - adminisztrátor
   - bejelentkezés
@@ -107,7 +107,7 @@ Rekordot az erre jogosult felhasználók a rekordokat listázó oldalak belső f
 
 A rekordok létrehozása és szerkesztése ugyanazon az oldalon történik. Attól függően, hogy mi a rekord státusza, a felhasználó a rekkordot létrehozza, vagy szerkeszti.
 
-A rekord létrehozásakor automatikusan létrejön a rekord egyedi azonosítója (ID). [opcionális] feladat, hogy ez az azaonosító a későbbiekben szerkeszthető legyen.
+A rekord létrehozásakor automatikusan létrejön a rekord egyedi azonosítója (ID). **[opcionális]** feladat, hogy ez az azaonosító a későbbiekben szerkeszthető legyen.
 
 A három rekordtípusnak (kép, tárgy, dokumentum) némileg eltérő a létrehozási/szerkesztési felülete. A specifikáció törekszik arra, hogy a lehető legtöbb közös jellemezőjét meghatározza a rekordtípusoknak, egyszerűsítve ezzel a rekrodtípusok kezelését.
 
@@ -122,7 +122,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - mentés
 - törlés
 
-##### Rekord / előzmények
+**[opcionális]** A rekordok nyomonkövetése szempontjából hasznos lenne, ha néhány adatot tárolnánk a rekordok életciklusából.
 
 - **[opcionális]** a rekordoknál megjelenítésre kerül a rekord története:
   - ki hozta létre a rekordot és mikor
@@ -138,6 +138,8 @@ A rekord létrehozása/szerkesztése oldalon történik a bináris állományok 
 - törölni egy feltöltött bináris állományt. (A törölt állományt felesleges megtartani.)
 
 A későbbiekben az elsődlegesnek megjelölt bináris állomány fog szerepelni a rekord adatlapján kiemelt állományként (praktikusan képként).
+
+#### Sematikus ábra
 
 ```
 Rekord létrehozása/szerkesztése
@@ -216,7 +218,7 @@ A leltárprogram adminisztrációs felületén külön listák segítik a feltö
 
 #### Funkciók a rekordok listájában
 
-A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüpontok alatt, valamint értelemszerűen az [opcionális] Törölt menüpont alatt) a felhasználók számára a következő lehetőségeket kell biztosítani:
+A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüpontok alatt, valamint értelemszerűen az **[opcionális]** Törölt menüpont alatt) a felhasználók számára a következő lehetőségeket kell biztosítani:
 
 1. `új rekord` hozzáadása -> egyetlen kérdés: a rekord típusa (kép, tárgy, dokumentum)
 2. rekordok listázása és egyértelmű beazonosítása legalább a következő elemekkel:
@@ -230,8 +232,8 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 3. rekord adatlapja -> (a rekordon bárhova kattintva) a rekord adatlapjára navigál
 4. táblázatfejlécben rendezési lehetőség
 5. az adminisztrációs lapon keresési lehetőség (szabadszavas)
-   1. [opcionális] a keresőmező mellett egy legördülő listából kiválasztható, hogy a felhasználó pontosan melyik mezőben szeretne keresni (például: címkék)
-6. [opcionális] a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
+   1. **[opcionális]** a keresőmező mellett egy legördülő listából kiválasztható, hogy a felhasználó pontosan melyik mezőben szeretne keresni (például: címkék)
+6. **[opcionális]** a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
 
 ```
 [+ rekord hozzáadása]                      [mező^] keresés: ...............
@@ -263,7 +265,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 
 ## Adattípusok
 
-[opcionális] Minden rekordokhoz tartozik egy **leírás mező**, amely hosszú szöveget tartalmaz. Mivel ez a mező szolgálna az adott rekord részletes leírására, jó lenne, ha támogatna pár alapvető formázási lehetőséget: paragrafus, félkövér betű, dőlt betű.
+**[opcionális]** Minden rekordokhoz tartozik egy **leírás mező**, amely hosszú szöveget tartalmaz. Mivel ez a mező szolgálna az adott rekord részletes leírására, jó lenne, ha támogatna pár alapvető formázási lehetőséget: paragrafus, félkövér betű, dőlt betű.
 
 ### Típus: kép
 
