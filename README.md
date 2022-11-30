@@ -49,15 +49,15 @@ Az admin felület sematikus felépítése:
 
 - fejléc: kijelentkezés
 - bal oldalon: menürendszer
-  - profil: a felhasználók egyszerű adminisztrálása
+  - [opcionális] profil
   - rekordok: a leltárban lévő **véglegesített** rekordok listája
   - véglegesítés: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
-  - **[opcionális]** törölt: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
+  - [opcionális] törölt: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
 - jobb oldalt: menürendszerben navigálástól függő tartalom
-  - profil: jelszóváltoztatási lehetőség
+  - [opcionális] profil: jelszóváltoztatási lehetőség
   - rekordok: a felhasználó jogosultságának megfelelő rekordok listázása, illetve, ha a jogosultsága engedi, akkor az oldalon atkív `új rekord` létrehozása gomb
   - véglegesítés: a felhasználó jogosultságának megfelelő rekordok listázása, valamint az oldalon atkív `új rekord` létrehozása gomb. Az erre jogosult felhasználók itt véglegesíthetik a feltöltött rekordokat, amelyek ezt követően kerülnek át a zárt/kutatható/publikus kategóriákba.
-  - **[opcionális]** törölt: a felhasználó jogosultságának megfelelő rekordok listázása. Az erre jogosult felhasználók itt állíthatják vissza a törölt rekordokat.
+  - [opcionális] törölt: a felhasználó jogosultságának megfelelő rekordok listázása. Az erre jogosult felhasználók itt állíthatják vissza a törölt rekordokat.
 
 A felhasználók számára kilistázott rekordok **két helyen** kattinthatóak:
 
@@ -75,9 +75,7 @@ Törölt >       | | fh236 | dokumentum | Fegyelmi határozat  ... |
 
 ### Felhasználók, jogkezelés
 
-**Nem fontos ehhez admin frontendet írni, bőven elég kézzel editálni a usereket.**
-
-A felhasználók felhasználónévvel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
+[opcionális] A felhasználók felhasználónévvel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
 
 #### Felhasználói kategóriák és jogosultságok
 
