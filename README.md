@@ -134,17 +134,25 @@ Rekord létrehozása/szerkesztése
 ------------------------------------------------
 
 ID: fh235 [szerkesztés]
-Megnevezés: ....................
+Megnevezés: ...........................
+Rekord helye (doboz): .................
 (...)
 (...)
+Leírás:
+┌--------------------------------------┐
+| [B] [I]                              |
+|--------------------------------------|
+| Lorem ipsum sic doloret              |
+|                                      |
+└--------------------------------------┘
 ------------------------------------------------
 [Állomány feltöltése]
 Feltöltött állomány1 [elsődleges] (X) [törlés]
 (...)
 Feltöltött állományN [elsődleges] ( ) [törlés]
 ------------------------------------------------
-Láthatóság [zárt | kutatható | publikus] 
-Végleges [I | N] 
+Láthatóság [zárt|kutatható|publikus] 
+Végleges [I|N] 
 [Mentés]
 [Törlés]
 ------------------------------------------------
