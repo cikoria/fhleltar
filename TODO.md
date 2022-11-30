@@ -13,3 +13,4 @@
 - [ ] [issue](https://github.com/cikoria/fhleltar/issues/7) tárgy keletkezési idejét egyszerűsíteni
 - [ ] [issue](https://github.com/cikoria/fhleltar/issues/8) tárgyak ID-jának szerkezetét kitalálni -> milyen megoldások vannak múzeumokban?
 - [ ] [issue](https://github.com/cikoria/fhleltar/issues/9) fizikai ID-kat kitalálni (doboz, vitrin, etc)
+- [ ] [issue](https://github.com/cikoria/fhleltar/issues/12) felület szöveges elemeinek meghatározása
