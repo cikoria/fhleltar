@@ -42,6 +42,9 @@ Alapfunkciónak nevezzük azokat a funkciókat, amelyekre mindenképp szükség 
   - rekord véglegesíte kapcsoló figyelembe vétele
 - Fázis 4.
 - Fázis 5.
+- Fázis N+1. (nincs specifikálva)
+  - rekorodok egy csoportja kijelölhető arra, hogy autentikáció nélkül is megtekinthető legyen az adatlapja
+  - saját oldal a szabadon hozzáférhető rekordok böngészéséhez
 
 ### Szószedet
 
