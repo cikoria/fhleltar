@@ -36,6 +36,8 @@
 
 A Futball Ház leltárprogram egy egyedi igényekre szabott adatbázis-keretrendszer. A leltárprogram elsődleges funkciója a Kispesti Futball Ház állományában lévő tárgyak nyilvántartása. A leltárprogram másodlagos funkciója ezen tárgyak publikálásának, szélesebb nyilvánosság felé történő bemutatásának elősegítése.
 
+A specifikációban **[opcionális]** címkével jelöltem az **alacsony prioritású** fejlesztési feladatokat.
+
 ### Szószedet
 
 - rekord: a leltár egy eleme, ami lehet kép, tárgy vagy dokumentum
@@ -57,7 +59,8 @@ Az admin felület legfontosabb funkciói:
 - rekordok létrehozása
 - rekordok listázása
 - rekordok szerkesztése
-- [opcionális] felhasználókezelés
+- **[opcionális]** felhasználókezelés
+- **[opcionális]** törölt rekordok kezelése
 
 Az admin felület sematikus felépítése:
 
@@ -65,15 +68,15 @@ Az admin felület sematikus felépítése:
 - bal oldalon: menürendszer
   - profil: a felhasználók egyszerű adminisztrálása
   - rekordok: a leltárban lévő **véglegesített** rekordok listája
-  - véglegesítés: **csak** az erre jogosult felhasználóknál jelenik meg, akik itt érik el a véglegesítésre váró rekordok listáját
-  - törölt: **csak** az erre jogosult felhasználóknál jelenik meg
+  - véglegesítés: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
+  - **[opcionális]** törölt: **csak** az erre jogosult felhasználóknál jelenik meg (vagy nekik aktív)
 - jobb oldalt: menürendszerben navigálástól függő tartalom
   - profil: jelszóváltoztatási lehetőség
   - rekordok: a felhasználó jogosultságának megfelelő rekordok listázása, illetve, ha a jogosultsága engedi, akkor az oldalon atkív `új rekord` létrehozása gomb
-  - véglegesítés: a felhasználó jogosultságának megfelelő rekordok listázása, valamint az oldalon atkív `új rekord` létrehozása gomb
-  - törölt: a felhasználó jogosultságának megfelelő rekordok listázása
+  - véglegesítés: a felhasználó jogosultságának megfelelő rekordok listázása, valamint az oldalon atkív `új rekord` létrehozása gomb. Az erre jogosult felhasználók itt véglegesíthetik a feltöltött rekordokat, amelyek ezt követően kerülnek át a zárt/kutatható/publikus kategóriákba.
+  - **[opcionális]** törölt: a felhasználó jogosultságának megfelelő rekordok listázása. Az erre jogosult felhasználók itt állíthatják vissza a törölt rekordokat.
 
-A felhasználóknak kilistázott rekordok **két helyen** kattinthatóak:
+A felhasználók számára kilistázott rekordok **két helyen** kattinthatóak:
 
 - a rekordba bárhova kattinva: a rekord adatlapjára navigál
 - a rekord végén lévő `szerkesztés` gombra kattintva a rekord létrehozó/szerkesztő oldalára navigál
@@ -103,7 +106,7 @@ A felhasználók email-címmel és jelszóval jelentkeznek be. A rendszer a felh
 
 - adminisztrátor
   - bejelentkezés
-  - [opcionális] admin frontend esetén: felhasználó létrehozása és jogosultságának megadása
+  - **[opcionális]** admin frontend esetén: felhasználó létrehozása és jogosultságának megadása
   - rekord létrehozása, feltöltés megkezdése, mentése
   - rekord végelegesítése,
   - véglegesített rekord státuszának megváltoztatása nem véglegesre
@@ -145,6 +148,8 @@ A rekordokat a felhasználók a leltárprogram admin felületén listázhatják 
 1. zárt -> kizárólag az adminisztrátor és feltöltő jogosultságú felhasználók számára kerül listázásra.
 2. kutatható -> a legalább kutató jogosultságú felhasználók számára kerül listázásra.
 3. publikus rekord -> minden felhasználó számára listázásra kerül.
+
+A pubkikus rekord az alapértelmezett.
 
 ```
 ├── véglegesítésre váró rekord
@@ -202,7 +207,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - a rekordhoz tartozó státusz és egyéb információk nem
 - a rekord fizikai helyéből csak a vitrin azonosítója.
   - **HA** egy rekord tárgya nincs vitrinben, akkor `raktárban` felirat olvasható helyette.
-- [opcionális] nyomtatási kép -> a rekord adatlapját böngésző felhasználó másolatot készíthet magának (PDF exportálás)
+- **[opcionális]** nyomtatási kép, vagy valami egyszerű sablon -> a rekord adatlapját böngésző felhasználó másolatot készíthet magának (PDF exportálás)
 
 - - - -
 
@@ -219,10 +224,10 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 
 ### Közös blokk / előzmények
 
-- [opcionális] a rekordoknál megjelenítésre kerül a rekord története:
+- **[opcionális]** a rekordoknál megjelenítésre kerül a rekord története:
   - ki hozta létre a rekordot és mikor
   - ki szerkesztette utoljára a rekordot és mikor
-  - [opcionális] a szerkesztési előzmények listázása -> user és dátum
+  - **[opcionális]** a szerkesztési előzmények listázása -> user és dátum
 
 ## Típus: kép
 
@@ -230,7 +235,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - **kép megnevezése**: szöveg
 - **kép**: bináris, maga a képállomány
 - **hátlap**: bináris, képállomány (ha a hátlapon van valami)
-  - [opcionális] **kép felbontása**: ha ki tudod olvasni, akkor tároljuk
+  - **[opcionális]** **kép felbontása**: ha ki tudod olvasni, akkor tároljuk
 - **kép színei**: színes / hamisszínes / festett / fekete-fehér / egyéb
 - **kép helye**: dobozID/albumID, szöveg (vagyis ahol fizikailag tároljuk a képet) -> ezeket az ID-kat mi határozzuk majd meg!
 - **kép pozíciója**:
