@@ -3,10 +3,14 @@
 ## TODO
 
 - [ ] (típus) a képeslapok képek vagy dokumentumok?
+- [ ] (admin) a törölt rekordok listázását újragondolni
+- [ ] (admin) rekord létrehozása oldalt kitalálni
 - [ ] tárgy pozícióját áttervezni:
    1. választás: raktár / vitrin / kölcsön
    2. szöveges: dobozID / vitrinID / kölcsönzés helye
 - [ ] tárgy keletkezési idejét egyszerűsíteni
+- [ ] tárgyak ID-jának szerkezetét kitalálni -> milyen megoldások vannak múzeumokban?
+- [ ] fizikai ID-kat kitalálni (doboz, vitrin, etc)
 
 - - - -
 
@@ -15,6 +19,7 @@
 - [Általános leírás](#általános-leírás)
   - [Szószedet](#szószedet)
 - [Admin felület](#admin-felület)
+  - [Rekord létrehozása](#rekord-létrehozása)
 - [Felhasználók, jogkezelés](#felhasználói-kategóriák-és-jogosultságaik)
 - [Rekordok státuszai, listázása, adatlapja](#rekordok-státuszai-listázása-adatlapja)
 - [Adattípusok](#adattípusok)
@@ -51,6 +56,38 @@ Az admin felület legfontosabb funkciói:
 - rekordok listázása
 - rekordok szerkesztése
 - [opcionális] felhasználókezelés
+
+Az admin felület sematikus felépítése:
+
+- fejléc: kijelentkezés
+- bal oldalon: menürendszer
+  - profil: a felhasználók egyszerű adminisztrálása
+  - rekordok: a leltárban lévő **véglegesített** rekordok listája
+  - véglegesítés: **csak** az erre jogosult felhasználóknál jelenik meg, akik itt érik el a véglegesítésre váró rekordok listáját
+  - törölt: **csak** az erre jogosult felhasználóknál jelenik meg
+- jobb oldalt: menürendszerben navigálástól függő tartalom
+  - profil: jelszóváltoztatási lehetőség
+  - rekordok: a felhasználó jogosultságának megfelelő rekordok listázása, illetve, ha a jogosultsága engedi, akkor az oldalon atkív `új rekord` létrehozása gomb
+  - véglegesítés: a felhasználó jogosultságának megfelelő rekordok listázása, valamint az oldalon atkív `új rekord` létrehozása gomb
+  - törölt: a felhasználó jogosultságának megfelelő rekordok listázása
+
+A felhasználóknak kilistázott rekordok **két helyen** kattinthatóak:
+
+- a rekordba bárhova kattinva: a rekord adatlapjára navigál
+- a rekord végén lévő `szerkesztés` gombra kattintva a rekord létrehozó/szerkesztő oldalára navigál
+
+```
+FHleltár     |                                    logout  ... |
+-------------|------------------------------------------- ... |
+Profil       | | ID    | típus      | név                 ... |
+Rerkordok    | |-------|------------|-------------------- ... |
+Véglegesítés | | fh235 | fotó       | Csapatkép 1929-ből  ... |
+Törölt       | | fh236 | dokumentum | Fegyelmi határozat  ... |
+```
+
+### Rekord létrehozása
+
+Rekordot az erre jogosult felhasználók a rekordokat listázó oldalak belső fejlécében, az `új rekord` gombra kattintva hozhatak létre.
 
 ## Felhasználók, jogkezelés
 
@@ -89,13 +126,13 @@ A felhasználók email-címmel és jelszóval jelentkeznek be. A rendszer a felh
 Egy rekord (kép, tárgy, dokumentum) a létrehozás (feltöltés) során több státuszon megy keresztül:
 
 1. létrehozás -> létrejön a rekord ID-ja
-2. feltöltés -> ez egy köztes státusz, amikor a rekord adatai feltöltésre kerülnek, azonban **nem** az összes -> a feltöltés a **mentés gomb** megnyomásával zárul
+2. feltöltés -> ez egy köztes státusz, amikor a rekord adatai feltöltésre kerülnek, azonban **nem** az összes -> a feltöltés a `mentés` gomb megnyomásával zárul
    1. a feltöltést bárki végezheti, azonban
    2. feltöltést, tehát rekordot csak erre jogosult felhasználó véglegesíthet
-3. feltöltés véglegesítése -> az erre jogosult felhasználó fejezi be a feltöltést (például meghatározza a rekord tárgyának fizikai helyét (dobozID), valamint ellenőrzi a felvitt adatokat) -> a feltöltés a **rekord véglegesítése váltókapcsoló** átállításával és a **mentés gomb** megnyomásával zárul (a váltókapcsoló csak az arra jogosult felhasználók számra aktív)
+3. véglegesítés -> az erre jogosult felhasználó fejezi be a feltöltést (például meghatározza a rekord tárgyának fizikai helyét (dobozID), valamint ellenőrzi a felvitt adatokat) -> a feltöltés a **rekord véglegesítése váltókapcsoló** átállításával és a `mentés` gomb megnyomásával zárul (a váltókapcsoló csak az arra jogosult felhasználók számra aktív)
 4. törölt -> speciális státusz.
    1. ebben az állapotban **nem** kerül fizikailag törlésre a rekord, hanem kap egy törölt flaget, és átkerül a törölt elemek listába
-   2. a **törlés gombot** csak az erre jogosult felhasználók nyomhatják meg (a gomb biztonsági kérdést jelenít meg: biztos/mégsem)
+   2. a `törlés` gombot csak az erre jogosult felhasználók nyomhatják meg (a gomb biztonsági kérdést jelenít meg: biztos/mégsem)
 
 ### Rekord láthatósága
 
@@ -113,6 +150,7 @@ A rekordokat a felhasználók a leltárprogram admin felületén listázhatják 
   	├── zárt rekord
   	├── kutatható rekord
   	├── publikus rekord
+├── törölt
 ```
 
 ### Rekordok listázása
@@ -135,7 +173,7 @@ A rekordokat listázó felületen a felhasználók számára a következő lehet
    4. rekord helye (dobozID)
    5. rekord pozíciója (vitrinID)
    6. rekord láthatósága
-   7. szerkesztés gomb -> a rekord feltöltési/szerkesztési oldalára visz
+   7. `szerkesztés` gomb -> a rekord feltöltési/szerkesztési oldalára visz
 3. rekord adatlapja -> (a rekordon bárhova kattintva) a rekord adatlapjára viszi
 4. táblázatfejlécben rendezési lehetőség
 5. az adminisztrációs lapon keresési lehetőség (szabadszavas)
@@ -186,7 +224,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 
 ## Típus: kép
 
-- **ID**: ::formátumát még ki kell találni::
+- **ID**:
 - **kép megnevezése**: szöveg
 - **kép**: bináris, maga a képállomány
 - **hátlap**: bináris, képállomány (ha a hátlapon van valami)
@@ -226,7 +264,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 
 ## Típus: tárgy
 
-- **ID**: ::formátumát még ki kell találni::
+- **ID**:
 - **tárgy megnevezése**: szöveg
 - **tárgy képe**: bináris (fotók a tárgyról)
   - kép1/kép2/…/képN
@@ -257,7 +295,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 
 ## Típus: dokumentum
 
-- **ID**: ::formátumát még ki kell találni::
+- **ID**:
 - **dokumentum megnevezése**: szöveg
 - **dokumentum**: bináris (maga a dokumentum)
   - dok1/dok2/…/dokN
