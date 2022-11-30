@@ -7,6 +7,8 @@
 - [ ] (típus) a képeslapok képek vagy dokumentumok?
 - [ ] (admin) a törölt rekordok listázását újragondolni
 - [ ] (admin) rekord létrehozása oldalt kitalálni
+- [ ] (admin) elsődleges kép kijelölésének lehetősége -> adatlapon ez jelenik meg fő képként
+- [ ] (admin) feltöltött kép törlésének lehetősége
 - [ ] tárgy pozícióját áttervezni:
    1. választás: raktár / vitrin / kölcsön
    2. szöveges: dobozID / vitrinID / kölcsönzés helye
@@ -78,8 +80,8 @@ Az admin felület sematikus felépítése:
 
 A felhasználók számára kilistázott rekordok **két helyen** kattinthatóak:
 
-- a rekordba bárhova kattinva: a rekord adatlapjára navigál
-- a rekord végén lévő `szerkesztés` gombra kattintva a rekord létrehozó/szerkesztő oldalára navigál
+- a rekordba bárhova kattinva: a rekord adatlapjára navigál.
+- a rekord végén lévő `szerkesztés` gombra kattintva a rekord létrehozó/szerkesztő oldalára navigál.
 
 ```
 FHleltár     |                                    logout  ... |
@@ -90,9 +92,27 @@ Véglegesítés | | fh235 | fotó       | Csapatkép 1929-ből  ... |
 Törölt       | | fh236 | dokumentum | Fegyelmi határozat  ... |
 ```
 
-### Rekord létrehozása
+### Rekord létrehozása/szerkesztése
 
-Rekordot az erre jogosult felhasználók a rekordokat listázó oldalak belső fejlécében, az `új rekord` gombra kattintva hozhatak létre.
+Rekordot az erre jogosult felhasználók a rekordokat listázó oldalak belső fejlécében, az `új rekord` gombra kattintva hozhatak létre. 
+
+A rekordok létrehozása és szerkesztése ugyanazon az oldalon történik. Attól függően, hogy mi a rekord státusza, a felhasználó a rekkordot létrehozza, vagy szerkeszti.
+
+A rekord létrehozásakor automatikusan létrejön a rekord egyedi azonosítója (ID). [opcionális] feladat, hogy ez az azaonosító a későbbiekben szerkeszthető legyen.
+
+A három rekordtípusnak (kép, tárgy, dokumentum) némileg eltérő a létrehozási/szerkesztési felülete. A specifikáció törekszik arra, hogy a lehető legtöbb közös jellemezőjét meghatározza a rekordtípusoknak, egyszerűsítve ezzel a rekrodtípusok kezelését.
+
+A rekordoktípusok létrehozásához tartozó mezők specifikációját lásd a dokumentum [Adattípusok](#adattípusok) fejezetében.
+
+#### Bináris állományok kezelée
+
+A rekord létrehozása/szerkesztése oldalon történik a bináris állományok (képek, dokumentumok) kezelése. A felhasználóknak itt lehetősége kell legyen:
+
+- feltölteni egy vagy több bináris állományt,
+- megjelölni az egyik bináris állományt, mint elsődleges állomány,
+- törölni egy feltöltött bináris állományt.
+
+A későbbiekben az elsődlegesnek megjelölt bináris állomány fog szerepelni a rekord adatlapján kiemelt állományként (praktikusan képként).
 
 ## Felhasználók, jogkezelés
 
@@ -134,7 +154,7 @@ Egy rekord (kép, tárgy, dokumentum) a létrehozás (feltöltés) során több 
 2. feltöltés -> ez egy köztes státusz, amikor a rekord adatai feltöltésre kerülnek, azonban **nem** az összes -> a feltöltés a `mentés` gomb megnyomásával zárul
    1. a feltöltést bárki végezheti, azonban
    2. feltöltést, tehát rekordot csak erre jogosult felhasználó véglegesíthet
-3. véglegesítés -> az erre jogosult felhasználó fejezi be a feltöltést (például meghatározza a rekord tárgyának fizikai helyét (dobozID), valamint ellenőrzi a felvitt adatokat) -> a feltöltés a **rekord véglegesítése váltókapcsoló** átállításával és a `mentés` gomb megnyomásával zárul (a váltókapcsoló csak az arra jogosult felhasználók számra aktív)
+3. véglegesítés -> az erre jogosult felhasználó fejezi be a feltöltést (például meghatározza a rekord tárgyának fizikai helyét (dobozID), valamint ellenőrzi a felvitt adatokat) -> a feltöltés a `rekord véglegesítése` váltókapcsoló átállításával és a `mentés` gomb megnyomásával zárul (a váltókapcsoló csak az arra jogosult felhasználók számra aktív)
 4. törölt -> speciális státusz.
    1. ebben az állapotban **nem** kerül fizikailag törlésre a rekord, hanem kap egy törölt flaget, és átkerül a törölt elemek listába
    2. a `törlés` gombot csak az erre jogosult felhasználók nyomhatják meg (a gomb biztonsági kérdést jelenít meg: biztos/mégsem)
@@ -170,10 +190,10 @@ A leltárprogram adminisztrációs felületén külön listák segítik a feltö
 
 ### Funkciók a rekordok listájában
 
-A rekordokat listázó felületen a felhasználók számára a következő lehetőségeket kell biztosítani:
+A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüpontok alatt, valamint értelemszerűen az [opcionális] Törölt menüpont alatt) a felhasználók számára a következő lehetőségeket kell biztosítani:
 
-1. új rekord hozzáadása -> egyetlen kérdés: a rekord típusa (kép, tárgy, dokumentum)
-2. rekord egyértelmű beazonosítása legalább a következő elemekkel:
+1. `új rekord` hozzáadása -> egyetlen kérdés: a rekord típusa (kép, tárgy, dokumentum)
+2. rekordok listázása és egyértelmű beazonosítása legalább a következő elemekkel:
    1. ID
    2. rekord típusa (kép, tárgy, dokumentum)
    3. rekord neve (a megnevezés)
@@ -181,9 +201,11 @@ A rekordokat listázó felületen a felhasználók számára a következő lehet
    5. rekord pozíciója (vitrinID)
    6. rekord láthatósága
    7. `szerkesztés` gomb -> a rekord feltöltési/szerkesztési oldalára visz
-3. rekord adatlapja -> (a rekordon bárhova kattintva) a rekord adatlapjára viszi
+3. rekord adatlapja -> (a rekordon bárhova kattintva) a rekord adatlapjára navigál
 4. táblázatfejlécben rendezési lehetőség
 5. az adminisztrációs lapon keresési lehetőség (szabadszavas)
+   1. [opcionális] a keresőmező mellett egy legördülő listából kiválasztható, hogy a felhasználó pontosan melyik mezőben szeretne keresni (például: címkék)
+6. [opcionális] a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
 
 ```
 + rekord hozzáadása                                keresés ................
@@ -217,7 +239,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 
 A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és szerkesztése oldalon.
 
-- rekord láthatóságának beállítása
+- rekord láthatóságának beállítása (zárt, kutatható, publikus)
 - rekord véglegesítése váltókapcsoló
 - mentés
 - törlés
