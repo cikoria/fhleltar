@@ -6,8 +6,8 @@
 - [ ] (!!!) (típus) a típusokat leíró mezőket meghatározni
 - [ ] (típus) a képeslapok képek vagy dokumentumok?
 - [ ] (admin) a törölt rekordok listázását újragondolni
-- [ ] (admin) rekord létrehozása oldalt kitalálni
-- [ ] (admin) elsődleges kép kijelölésének lehetősége -> adatlapon ez jelenik meg fő képként
+- [x] (admin) rekord létrehozása oldalt kitalálni
+- [x] (admin) elsődleges kép kijelölésének lehetősége -> adatlapon ez jelenik meg fő képként
 - [ ] (admin) feltöltött kép törlésének lehetősége
 - [ ] tárgy pozícióját áttervezni:
    1. választás: raktár / vitrin / kölcsön
@@ -23,9 +23,9 @@
 - [Általános leírás](#általános-leírás)
   - [Szószedet](#szószedet)
 - [Admin felület](#admin-felület)
-  - [Rekord létrehozása](#rekord-létrehozása)
-- [Felhasználók, jogkezelés](#felhasználói-kategóriák-és-jogosultságaik)
-- [Rekordok státuszai, listázása, adatlapja](#rekordok-státuszai-listázása-adatlapja)
+  - [Rekord létrehozása/szerkesztése](#rekord-létrehozásaszerkesztése)
+  - [Felhasználók, jogkezelés](#felhasználói-kategóriák-és-jogosultságaik)
+  - [Rekordok státuszai, listázása, adatlapja](#rekordok-státuszai-listázása-adatlapja)
 - [Adattípusok](#adattípusok)
   - [Közös blokk](#közös-blokk)
   - [Típus: kép](#típus-kép)
@@ -114,15 +114,13 @@ A rekord létrehozása/szerkesztése oldalon történik a bináris állományok 
 
 A későbbiekben az elsődlegesnek megjelölt bináris állomány fog szerepelni a rekord adatlapján kiemelt állományként (praktikusan képként).
 
-## Felhasználók, jogkezelés
-
-### Általános leírás
+### Felhasználók, jogkezelés
 
 **Nem fontos ehhez admin frontendet írni, bőven elég kézzel editálni a usereket.**
 
 A felhasználók email-címmel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
 
-### Felhasználói kategóriák és jogosultságaik
+#### Felhasználói kategóriák és jogosultságaik
 
 - adminisztrátor
   - bejelentkezés
@@ -144,9 +142,9 @@ A felhasználók email-címmel és jelszóval jelentkeznek be. A rendszer a felh
   - bejelentkezés
   - **publikus** rekordok listázása
 
-## Rekordok státuszai, listázása, adatlapja
+### Rekordok státuszai, listázása, adatlapja
 
-### Rekordok státuszai
+#### Rekordok státuszai
 
 Egy rekord (kép, tárgy, dokumentum) a létrehozás (feltöltés) során több státuszon megy keresztül:
 
@@ -159,7 +157,7 @@ Egy rekord (kép, tárgy, dokumentum) a létrehozás (feltöltés) során több 
    1. ebben az állapotban **nem** kerül fizikailag törlésre a rekord, hanem kap egy törölt flaget, és átkerül a törölt elemek listába
    2. a `törlés` gombot csak az erre jogosult felhasználók nyomhatják meg (a gomb biztonsági kérdést jelenít meg: biztos/mégsem)
 
-### Rekord láthatósága
+#### Rekord láthatósága
 
 Az egyes rekordoknak három láthatósági állapota létezik, amikre **kizárólag** az adminisztrátor jogkörrel rendelkező felhasználók állíthatnak be (a feltöltők számára inaktív attribútum). A rekordok láthatósága **csak a véglegesített** rekordokon értelmezhető, tehát a nem véglegesített rekordok kizárólag a feltöltési státusz listájából érhetők el az arra jogosult felhasználóknak.
 
@@ -180,7 +178,7 @@ A pubkikus rekord az alapértelmezett.
 ├── törölt
 ```
 
-### Rekordok listázása
+#### Rekordok listázása
 
 A leltárprogram adminisztrációs felületén külön listák segítik a feltöltést végző felhasználókat:
 
@@ -188,7 +186,7 @@ A leltárprogram adminisztrációs felületén külön listák segítik a feltö
 2. nyitott feltöltések -> a véglegesítésre váró feltöltések
 3. törölt feltöltések
 
-### Funkciók a rekordok listájában
+#### Funkciók a rekordok listájában
 
 A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüpontok alatt, valamint értelemszerűen az [opcionális] Törölt menüpont alatt) a felhasználók számára a következő lehetőségeket kell biztosítani:
 
@@ -217,7 +215,7 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 | fh237 | tárgy      | Bozsik-féle váza   | dob004 |         | zárt       | E
 ```
 
-### Rekordok adatlapja
+#### Rekordok adatlapja
 
 A rekord adatlapja egy egyedi stíluslappal ellátott oldal, ahol az adott rekord adatait meg lehet tekinteni. -> A későbbi publikálás alapját ezek az oldalak képezik.
 
@@ -244,14 +242,14 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
 - mentés
 - törlés
 
-### Közös blokk / előzmények
+#### Közös blokk / előzmények
 
 - **[opcionális]** a rekordoknál megjelenítésre kerül a rekord története:
   - ki hozta létre a rekordot és mikor
   - ki szerkesztette utoljára a rekordot és mikor
   - **[opcionális]** a szerkesztési előzmények listázása -> user és dátum
 
-## Típus: kép
+### Típus: kép
 
 - **ID**:
 - **kép megnevezése**: szöveg
@@ -285,7 +283,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
   - címke1 / címke2 / … / címkeN
 - **leírás**: hosszú szöveg (szabadszavas mező)
 
-## Típus: tárgy
+### Típus: tárgy
 
 - **ID**:
 - **tárgy megnevezése**: szöveg
@@ -314,7 +312,7 @@ A közös blokk minden adattípusnál fixen jelen van a rekord felvitele és sze
   - címke1 / címke2 / … / címkeN
 - **leírás**: hosszú szöveg (szabadszavas mező)
 
-## Típus: dokumentum
+### Típus: dokumentum
 
 - **ID**:
 - **dokumentum megnevezése**: szöveg
