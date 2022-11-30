@@ -12,17 +12,16 @@
 
 ## Tartalomjegyzék
 
-- Általános leírás
-  - Szószedet
-- Keretrendszer
-  - Admin felület
-  - Felhasználók, jogkezelés
-  - Rekordok státuszai, listázása, adatlapja
-- Adattípusok
-  - Közös blokk
-  - Típus: kép
-  - Típus: tárgy
-  - Típus: dokumentum
+- [Általános leírás](#általános-leírás)
+  - [Szószedet](#szószedet)
+- [Admin felület](#admin-felület)
+- [Felhasználók, jogkezelés](#felhasználói-kategóriák-és-jogosultságaik)
+- [Rekordok státuszai, listázása, adatlapja](#rekordok-státuszai-listázása-adatlapja)
+- [Adattípusok](#adattípusok)
+  - [Közös blokk](#közös-blokk)
+  - [Típus: kép](#típus-kép)
+  - [Típus: tárgy](#típus-tárgy)
+  - [Típus: dokumentum](#típus-dokumentum)
 
 - - - -
 
