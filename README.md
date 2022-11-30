@@ -23,8 +23,8 @@
 - [Általános leírás](#általános-leírás)
   - [Szószedet](#szószedet)
 - [Admin felület](#admin-felület)
-  - [Rekord létrehozása/szerkesztése](#rekord-létrehozásaszerkesztése)
   - [Felhasználók, jogkezelés](#felhaszn%C3%A1l%C3%B3i-kateg%C3%B3ri%C3%A1k-%C3%A9s-jogosults%C3%A1gok)
+  - [Rekord létrehozása/szerkesztése](#rekord-létrehozásaszerkesztése) 
   - [Rekordok státuszai, listázása, adatlapja](#rekordok-státuszai-listázása-adatlapja)
 - [Adattípusok](#adattípusok)
   - [Típus: kép](#típus-kép)
@@ -91,6 +91,36 @@ Véglegesítés > | | fh235 | fotó       | Csapatkép 1929-ből  ... |
 Törölt >       | | fh236 | dokumentum | Fegyelmi határozat  ... |
 ```
 
+### Felhasználók, jogkezelés
+
+**Nem fontos ehhez admin frontendet írni, bőven elég kézzel editálni a usereket.**
+
+A felhasználók felhasználónévvel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
+
+#### Felhasználói kategóriák és jogosultságok
+
+[opcionális] Az admin felületen az adminisztrátor jogkörű felhsználók létrehozhatnak adott jogkörökkel új felhasználókat. Ennek a felületnek a megléte **nem prioritás**, bőven elégséges, ha adatbázisban létrehozhatók a felhasználók.
+
+- adminisztrátor
+  - bejelentkezés
+  - **[opcionális]** felhasználók: felhasználó létrehozása, listázása, jogosultságának megváltoztatása
+  - rekord létrehozása, feltöltés megkezdése, mentése
+  - rekord végelegesítése,
+  - véglegesített rekord státuszának megváltoztatása nem véglegesre
+  - rekord törlése
+  - **publikus**, **kutatható** és **zárt** rekordok listázása
+- feltöltő
+  - bejelentkezés
+  - rekord létrehozása, feltöltés megkezdése, mentése
+  - nem véglegesített rekordok szerkesztése
+  - **publikus**, **kutatható** és **zárt** rekordok listázása
+- **[opcionális]** kutató
+  - bejelentkezés
+  - **publikus** és **kutatható** rekordok listázása
+- látogató
+  - bejelentkezés
+  - **publikus** rekordok listázása
+
 ### Rekord létrehozása/szerkesztése
 
 Rekordot az erre jogosult felhasználók a rekordokat listázó oldalak belső fejlécében, az `új rekord` gombra kattintva hozhatak létre. 
@@ -134,6 +164,7 @@ Rekord létrehozása/szerkesztése
 ------------------------------------------------
 
 ID: fh235 [szerkesztés]
+
 Megnevezés: ...........................
 Rekord helye (doboz): .................
 (...)
@@ -159,34 +190,6 @@ Végleges [I|N]
 Rekordot létrehozta: user, dátum
 Utolsó módosítás: user, dátum
 ```
-
-### Felhasználók, jogkezelés
-
-**Nem fontos ehhez admin frontendet írni, bőven elég kézzel editálni a usereket.**
-
-A felhasználók felhasználónévvel és jelszóval jelentkeznek be. A rendszer a felhasználót alapértelmezett jelszóval hozza létre, majd a felhasználók azt az admin felületen megváltoztatják. Kerüljük el az `Almafa123` típusú jelszavakat.
-
-#### Felhasználói kategóriák és jogosultságok
-
-- adminisztrátor
-  - bejelentkezés
-  - **[opcionális]** felhasználók: felhasználó létrehozása, listázása, jogosultságának megváltoztatása
-  - rekord létrehozása, feltöltés megkezdése, mentése
-  - rekord végelegesítése,
-  - véglegesített rekord státuszának megváltoztatása nem véglegesre
-  - rekord törlése
-  - **publikus**, **kutatható** és **zárt** rekordok listázása
-- feltöltő
-  - bejelentkezés
-  - rekord létrehozása, feltöltés megkezdése, mentése
-  - nem véglegesített rekordok szerkesztése
-  - **publikus**, **kutatható** és **zárt** rekordok listázása
-- **[opcionális]** kutató
-  - bejelentkezés
-  - **publikus** és **kutatható** rekordok listázása
-- látogató
-  - bejelentkezés
-  - **publikus** rekordok listázása
 
 ### Rekordok státuszai, listázása, adatlapja
 
