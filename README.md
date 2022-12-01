@@ -8,7 +8,7 @@
 - [Admin felület](#admin-felület)
   - [Felhasználók, jogkezelés](#felhaszn%C3%A1l%C3%B3i-kateg%C3%B3ri%C3%A1k-%C3%A9s-jogosults%C3%A1gok)
     - [Felhasználói kategóriák és jogosultságok](#felhasználói-kategóriák-és-jogosultságok)
-  - [Rekord létrehozása/szerkesztése](#rekord-létrehozásaszerkesztése) 
+  - [Rekord létrehozása/szerkesztése](#rekord-létrehozásaszerkesztése)
     - [Szerkesztő blokk](#szerkesztő-blokk)
     - [Bináris állományok kezelése](#bin%C3%A1ris-%C3%A1llom%C3%A1nyok-kezel%C3%A9se)
     - [Sematikus ábra](#sematikus-ábra)
@@ -42,7 +42,7 @@ Alapfunkciónak nevezzük azokat a funkciókat, amelyekre mindenképp szükség 
  lehetőségével
   - rekord törlése
   - rekordok listázása
-- Fázis 2. 
+- Fázis 2.
   - új felhasználótípus: látogató
   - adatlap létrehozása
   - rekordok láthatóságának figyelembe vétele
@@ -99,7 +99,7 @@ A felhasználók számára kilistázott rekordok **két helyen** kattinthatóak:
 - a rekordba bárhova kattinva: a rekord adatlapjára navigál.
 - a rekord végén lévő `szerkesztés` gombra kattintva a rekord létrehozó/szerkesztő oldalára navigál.
 
-```
+```text
 FHleltár       |                                    logout  ... |
 ---------------|------------------------------------------- ... |
 Profil >       | | ID    | típus      | név                 ... |
@@ -138,7 +138,7 @@ Törölt >       | | fh236 | dokumentum | Fegyelmi határozat  ... |
 
 ### Rekord létrehozása/szerkesztése
 
-Rekordot az erre jogosult felhasználók a rekordokat listázó oldalak belső fejlécében, az `új rekord` gombra kattintva hozhatak létre. 
+Rekordot az erre jogosult felhasználók a rekordokat listázó oldalak belső fejlécében, az `új rekord` gombra kattintva hozhatak létre.
 
 A rekordok létrehozása és szerkesztése ugyanazon az oldalon történik. Attól függően, hogy mi a rekord státusza, a felhasználó a rekkordot létrehozza, vagy szerkeszti.
 
@@ -176,7 +176,7 @@ A későbbiekben az elsődlegesnek megjelölt bináris állomány fog szerepelni
 
 #### Sematikus ábra
 
-```
+```text
 Rekord létrehozása/szerkesztése
 ------------------------------------------------
 
@@ -234,12 +234,12 @@ A rekordokat a felhasználók a leltárprogram admin felületén listázhatják 
 
 A pubkikus rekord az alapértelmezett.
 
-```
+```text
 ├── véglegesítésre váró rekord
 ├── véglegesített rekord
-  	├── zárt rekord
-  	├── kutatható rekord
-  	├── publikus rekord
+    ├── zárt rekord
+    ├── kutatható rekord
+    ├── publikus rekord
 ├── törölt
 ```
 
@@ -271,7 +271,7 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 6. lapozási lehetőség -> ha túl sok a megjeleníthető rekord, akkor a felhasználók lapozhassanak a listázott elemek között
 7. **[opcionális]** a felhasználók az oldal alján egy legördülő menüben megadhatják, hogy mennyi rekordot szeretnének listázni (25, 50, 100, 250)
 
-```
+```text
 [+ rekord hozzáadása]                      [mező^] keresés: ...............
 
 | ID    | típus      | név                | doboz  | pozíció | láthatóság |
