@@ -17,7 +17,7 @@
     - [Rekordok láthatósága](#rekord-láthatósága)
     - [Rekordok listázása](#rekordok-listázása)
     - [Funkciók a rekordok listában](#funkciók-a-rekordok-listájában)
-    - [Rekordok adatlapja](#rekordok-adatlapja)
+    - [Rekordok adatlapja](#rekordok-adatlapja-f%C3%A1zis-2)
 - [Adattípusok](#adattípusok)
   - [Típus: kép](#típus-kép)
   - [Típus: tárgy](#típus-tárgy)
@@ -29,7 +29,7 @@
 
 A Futball Ház leltárprogram egy egyedi igényekre szabott adatbázis-keretrendszer. A leltárprogram elsődleges funkciója a Kispesti Futball Ház állományában lévő tárgyak nyilvántartása. A leltárprogram másodlagos funkciója ezen tárgyak publikálásának, szélesebb nyilvánosság felé történő bemutatásának elősegítése.
 
-**[!!!]** A specifikáció **[opcionális]** címkével jelöli az **alacsony prioritású** fejlesztési feladatokat. Ezek nélkül a rendszer működőképes, legfeljebb pár funkció eléréséhez fejlesztőre lesz szükség.
+**[!!!]** A specifikáció **[opcionális]** címkével jelöli az **alacsony prioritású** fejlesztési feladatokat. Ezek nélkül a rendszer működőképes, legfeljebb pár funkció eléréséhez fejlesztőre lesz szükség. Néhol az **[opcionális]** helyett a tervezet fázis szerepel címkeként, tehát például **[Fázis 2.]**
 
 ### Alapfunkciók
 
@@ -124,7 +124,7 @@ Törölt >       | | fh236 | dokumentum | Fegyelmi határozat  ... |
   - véglegesített rekord státuszának megváltoztatása nem véglegesre
   - rekord törlése
   - **publikus**, **kutatható** és **zárt** rekordok listázása
-- feltöltő
+- **[Fázis 3.]** feltöltő
   - bejelentkezés
   - rekord létrehozása, feltöltés megkezdése, mentése
   - nem véglegesített rekordok szerkesztése
@@ -132,7 +132,7 @@ Törölt >       | | fh236 | dokumentum | Fegyelmi határozat  ... |
 - **[opcionális]** kutató
   - bejelentkezés
   - **publikus** és **kutatható** rekordok listázása
-- látogató
+- **[Fázis 2.]** látogató
   - bejelentkezés
   - **publikus** rekordok listázása
 
@@ -224,6 +224,8 @@ Egy rekord (kép, tárgy, dokumentum) a létrehozás (feltöltés) során több 
 
 #### Rekord láthatósága
 
+A rekordok láthatóságának figyelembe vétele a **[Fázis 2.]** része, azonban a **[Fázis 1.]** során kell lekódolni a jelölő beállításának lehetőségét, illetve menteni a rekordoknál beállított értékeket.
+
 Az egyes rekordoknak három láthatósági állapota létezik, amikre **kizárólag** az adminisztrátor jogkörrel rendelkező felhasználók állíthatnak be (a feltöltők számára inaktív attribútum). A rekordok láthatósága **csak a véglegesített** rekordokon értelmezhető, tehát a nem véglegesített rekordok kizárólag a feltöltési státusz listájából érhetők el az arra jogosult felhasználóknak.
 
 A rekordokat a felhasználók a leltárprogram admin felületén listázhatják ki, és az egyes rekordokra kattintva a rekord adatlapjára kerülnek. A felhasználói jogosultságok növekményesek, vagyis az egyes szintekhez hozzátartoznak az összes alacsonyabb szint jogosultságai is.
@@ -232,7 +234,7 @@ A rekordokat a felhasználók a leltárprogram admin felületén listázhatják 
 2. **[opcionális]** kutatható -> a legalább kutató jogosultságú felhasználók számára kerül listázásra.
 3. publikus rekord -> minden felhasználó számára listázásra kerül.
 
-A pubkikus rekord az alapértelmezett.
+Alapértelmezés: publikus rekord.
 
 ```text
 ├── véglegesítésre váró rekord
@@ -283,11 +285,11 @@ A rekordokat listázó felületeken (a Rekordok és a Véglegesítés menüponto
 elemszám: [20^]              « < - > »
 ```
 
-#### Rekordok adatlapja
+#### Rekordok adatlapja [Fázis 2.]
 
 A rekord adatlapja egy egyedi stíluslappal ellátott oldal, ahol az adott rekord adatait meg lehet tekinteni. -> A későbbi publikálás alapját ezek az oldalak képezik.
 
-A rekordok adatlapját a rekordok listájából lehet elérni. Mivel a listák eleve jogkezelést alkalmaznak, így az egyes rekordok adatlapjaihoz csak az arra jogosult felhasználók férhetnek hozzá.
+A rekordok adatlapját a rekordok listájából, az adott rekordra kattintva lehet elérni. Mivel a listák eleve jogkezelést alkalmaznak, így az egyes rekordok adatlapjaihoz csak az arra jogosult felhasználók férhetnek hozzá.
 
 A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek közvetlenül a rekordhoz köthetők, tehát
 
