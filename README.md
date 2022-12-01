@@ -29,7 +29,7 @@
 
 A Futball Ház leltárprogram egy egyedi igényekre szabott adatbázis-keretrendszer. A leltárprogram elsődleges funkciója a Kispesti Futball Ház állományában lévő tárgyak nyilvántartása. A leltárprogram másodlagos funkciója ezen tárgyak publikálásának, szélesebb nyilvánosság felé történő bemutatásának elősegítése.
 
-**[!!!]** A specifikáció **[opcionális]** címkével jelöli az **alacsony prioritású** fejlesztési feladatokat. Ezek nélkül a rendszer működőképes, legfeljebb pár funkció eléréséhez fejlesztőre lesz szükség. Néhol az **[opcionális]** helyett a tervezet fázis szerepel címkeként, tehát például **[Fázis 2.]**
+**[!!!]** A specifikáció **[opcionális]** címkével jelöli az **alacsony prioritású** fejlesztési feladatokat. Ezek nélkül a rendszer működőképes, legfeljebb pár funkció eléréséhez fejlesztőre lesz szükség. Néhol az **[opcionális]** helyett a tervezett fázis szerepel címkeként, tehát például **[Fázis 2.]**
 
 ### Alapfunkciók
 
