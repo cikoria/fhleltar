@@ -38,8 +38,10 @@ Alapfunkciónak nevezzük azokat a funkciókat, amelyekre mindenképp szükség 
 - Fázis 1. (alapfunkciók)
   - felhasználók autentikációja (be- és kijelentkezés)
   - egyetlen felhasználótípus van: adminisztrátor
-  - új rekord létrehozása és mentése, benne a bináris állományok feltöltésének
- lehetőségével
+  - új rekord létrehozása (minden attribútomot rögzíteni kell)
+  - bináris állományok feltöltésének lehetősége a rekordokhoz
+  - rekord mentése
+  - rekord szerkesztése
   - rekord törlése
   - rekordok listázása
 - Fázis 2.
