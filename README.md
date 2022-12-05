@@ -326,7 +326,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **hivatkozás**: URL (ha a kép a neten is elérhető)
 - **kép mérete**: kicsi / közepes / nagy (szemre határozzuk meg)
 - **kép darabszáma**: szám (mennyi van belőle)
-- **kép típusa**: meccs / csapatkép / portré / képeslap / egyéb
+- **kép típusa**: meccs / csapatkép / portré / (...) / egyéb
 - **kép helyszíne**: szöveg (egyelőre!, a kép készítésének helye, majd később lehet, ebből is rendezett lista lesz)
 - **kép készítésének ideje**:
   - bizonytalan: igen/nem
@@ -356,7 +356,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **kölcsöntárgy**: igen/nem
   - **HA IGEN**: szöveg (megjegyzés, hogy kitől kaptuk, satöbbi)
 - **tárgy darabszáma**: szám (mennyi van belőle)
-- **tárgy típusa**: kupa, trófea / érem / kerámia, porcelán / kitűző / emlék- vagy ajándéktárgy (öngyújtó, kanál, cigarettatárca, etc) / zászló / ruhanemű (cipő, mez, nadrág, sál, etc) / sportszer (labda, síp, karszalag, etc) / ::bővíteni::  / egyéb
+- **tárgy típusa**: szöveg [kupa, trófea / érem / kerámia, porcelán / kitűző / emlék- vagy ajándéktárgy (öngyújtó, kanál, cigarettatárca, etc) / zászló / ruhanemű (cipő, mez, nadrág, sál, etc) / sportszer (labda, síp, karszalag, etc) / (...)  / egyéb]
 - **tárgy keletkezésének ideje**:
   - bizonytalan: igen/nem
     - **HA IGEN**: szöveg (megközelítőleg)
@@ -386,7 +386,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **kölcsöndokumentum**: igen/nem
   - **HA IGEN**: szöveg (megjegyzés, hogy kitől kaptuk, satöbbi)
 - **dokumentum darabszáma**: szám (mennyi van belőle)
-- **dokumentum típusa**:  jegy / bérlet / pass / műsorfüzet / jegyzőkönyv / újság / könyv / brosúra / plakát /  ::bővíteni::  / egyéb
+- **dokumentum típusa**:  jegy / bérlet / pass / műsorfüzet / jegyzőkönyv / újság / könyv / brosúra / plakát /  szerződés (játékos, szponzor, más egyesülettel, etc) / (...)  / egyéb
 - **dokumentum keletkezésének ideje**:
   - bizonytalan: igen/nem
     - **HA IGEN**: szöveg (megközelítőleg)
