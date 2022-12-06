@@ -2,7 +2,7 @@
 
 - [ ] [issue](https://github.com/cikoria/fhleltar/issues/2) (!!!) (típus) az egyes tárgyfajták legteljesebb körét meghatározni és besorolni
 - [ ] [issue](https://github.com/cikoria/fhleltar/issues/3) (!!!) (típus) a típusokat leíró mezőket meghatározni
-- [ ] [issue](https://github.com/cikoria/fhleltar/issues/4) (típus) a képeslapok képek vagy dokumentumok?
+- [x] [issue](https://github.com/cikoria/fhleltar/issues/4) (típus) a képeslapok képek vagy dokumentumok?
 - [ ] [issue](https://github.com/cikoria/fhleltar/issues/5) (admin) a törölt rekordok listázását újragondolni
 - [ ] [issue](https://github.com/cikoria/fhleltar/issues/6) (admin) rekord létrehozása oldalt kitalálni
 - [x] [issue](https://github.com/cikoria/fhleltar/issues/11) (admin) elsődleges kép kijelölésének lehetősége -> adatlapon ez jelenik meg fő képként
