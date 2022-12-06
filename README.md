@@ -314,12 +314,10 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **kép**: bináris, maga a képállomány
 - **hátlap**: bináris, képállomány (ha a hátlapon van valami)
   - **[opcionális]** **kép felbontása**: ha ki tudod olvasni, akkor tároljuk
-- **kép színei**: színes / hamisszínes / festett / fekete-fehér / egyéb
-- **kép helye**: dobozID/albumID, szöveg (vagyis ahol fizikailag tároljuk a képet) -> ezeket az ID-kat mi határozzuk majd meg!
-- **kép pozíciója**:
-  - dobozban: igen/nem
-  - kölcsönben: szöveg (hova adtuk kölcsön)
-  - vitrinben: vitrinID
+- **kép színei**: színes / hamisszínes / festett / fekete-fehér / etc
+- **fotó állapota**: elmosódott / hiányos / összefirkált / etc
+- **kép raktári helye**: dobozID/albumID, szöveg (vagyis ahol fizikailag tároljuk a képet) -> ezeket az ID-kat mi határozzuk majd meg!
+- **kép pozíciója**: bevételezés alatt (amikor még nincs pozíciója) / dobozban (vagyis raktáron) / kölcsönben (valahova kiadva) / vitrinben (vagyis a kiállítótérben) / digitális (vagyis csak az adatbázisunkban)
 - **kép forrása**: szöveg (kitől kaptuk, mikor, esetleg jogtulajdonos, etc)
 - **kölcsönkép**: igen/nem
   - **HA IGEN**: szöveg (megjegyzés, hogy kitől kaptuk, satöbbi)
@@ -327,17 +325,20 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **kép mérete**: kicsi / közepes / nagy (szemre határozzuk meg)
 - **kép darabszáma**: szám (mennyi van belőle)
 - **kép típusa**: meccs / csapatkép / portré / (...) / egyéb
-- **kép helyszíne**: szöveg (egyelőre!, a kép készítésének helye, majd később lehet, ebből is rendezett lista lesz)
+- **kép helyszíne**:
+  - **ismeretlen**: igen/nem
+  - **HA NEM**: szöveg (egyelőre!, a kép készítésének helye, majd később lehet, ebből is rendezett lista lesz)
 - **kép készítésének ideje**:
-  - bizonytalan: igen/nem
-    - **HA IGEN**: szöveg (megközelítőleg)
-    - **HA NEM**:
-      - év: szám
-      - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
-- **képen szereplő emberek**: szöveg (egyelőre!, aztán később ezekből is adatbázis lesz, de mivel nincs névadatbázisunk, ezt majd utólag javítjuk) -> képeslapnál: felismerhető aláírások
-  - név1 / név2 / … / névN
+  - **ismert dátum**: igen/nem
+    - **HA IGEN**: év.hó.nap
+    - **HA NEM**: szöveg
+- **képen szereplő emberek (képeslapnál: aláírások)**: 
+  - **elemszám**: szám (mennyi ember/aláírás van a képen)
+  - **nevek**: név1 / név2 / ... / névN
+- **dedikált**: igen/nem
+  - **HA IGEN**: név1 / név2 / ... / névN
 - **hiányzó adat**: igen/nem (ha a képen nem mindenkit sikerült felismerni, akkor a hiány: igen)
-- **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
+- **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz) -> pl. ha keretben van, az is egy címke!
   - címke1 / címke2 / … / címkeN
 - **leírás**: hosszú szöveg (szabadszavas mező)
 
@@ -347,24 +348,22 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **tárgy megnevezése**: szöveg
 - **tárgy képe**: bináris (fotók a tárgyról)
   - kép1 / kép2 / … / képN
+- **tárgy állapota**: hiányos / törött / etc
 - **tárgy helye**: dobozID/albumID, szöveg (vagyis ahol fizikailag tároljuk a tárgyat) -> ezeket az ID-kat mi határozzuk majd meg!
-- **tárgy pozíciója**:
-  - dobozban: igen/nem
-  - kölcsönben: szöveg (hova adtuk kölcsön)
-  - vitrinben: vitrinID
+- **tárgy pozíciója**: bevételezés alatt (amikor még nincs pozíciója) / dobozban (vagyis raktáron) / kölcsönben (valahova kiadva) / vitrinben (vagyis a kiállítótérben) / ~~digitális (vagyis csak az adatbázisunkban)~~
 - **tárgy forrása**: szöveg (kitől kaptuk, mikor, esetleg jogtulajdonos, etc)
 - **kölcsöntárgy**: igen/nem
   - **HA IGEN**: szöveg (megjegyzés, hogy kitől kaptuk, satöbbi)
 - **tárgy darabszáma**: szám (mennyi van belőle)
 - **tárgy típusa**: szöveg [kupa, trófea / érem / kerámia, porcelán / kitűző / emlék- vagy ajándéktárgy (öngyújtó, kanál, cigarettatárca, etc) / zászló / ruhanemű (cipő, mez, nadrág, sál, etc) / sportszer (labda, síp, karszalag, etc) / (...)  / egyéb]
 - **tárgy keletkezésének ideje**:
-  - bizonytalan: igen/nem
-    - **HA IGEN**: szöveg (megközelítőleg)
-    - **HA NEM**:
-      - év: szám
-      - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
+  - **ismert dátum**: igen/nem
+    - **HA IGEN**: év.hó.nap
+    - **HA NEM**: szöveg
 - **a tárgyhoz köthető emberek**: szöveg (pl. Tichy Lajos)
   - név1 / név2 / … / névN
+- **ellenféltől kapott tárgy**: igen/nem 
+  - **HA IGEN**: szöveg
 - **hiányzó adat**: igen/nem (ha a tárgyról nem tudunk valami komolyabbat, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
   - címke1 / címke2 / … / címkeN
@@ -377,24 +376,23 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **dokumentum**: bináris (maga a dokumentum)
   - dok1 / dok2 / … / dokN
 - **karakterfelismerés**: igen/nem (ha a dokumentumon elvégeztük a karakterfelismerést, akkor igen) -> **fontos**: a dokumentumnál lehetőséget kell biztosítani a cserére (törlésre), valamint a dokumentumok listázására (előfordulhat, hogy több verzióban fog felkerülni)
+- **eredeti példány**: igen/nem (HA például a Honvédnál van az eredeti, akkor a Honvéd egy önálló dobozID lesz)
+- **dokumentum állapota**: hiányos / sérült / elmosódott / etc
 - **dokumentum helye**: dobozID/albumID, szöveg (vagyis ahol fizikailag tároljuk a tárgyat) -> ezeket az ID-kat mi határozzuk majd meg!
-- **dokumentum pozíciója**:
-  - dobozban: igen/nem
-  - kölcsönben: szöveg (hova adtuk kölcsön)
-  - vitrinben: vitrinID
+- **dokumentum pozíciója**: bevételezés alatt (amikor még nincs pozíciója) / dobozban (vagyis raktáron) / kölcsönben (valahova kiadva) / vitrinben (vagyis a kiállítótérben) / digitális (vagyis csak az adatbázisunkban)
 - **dokumentum forrása**: szöveg (kitől kaptuk, mikor, esetleg jogtulajdonos, etc)
 - **kölcsöndokumentum**: igen/nem
   - **HA IGEN**: szöveg (megjegyzés, hogy kitől kaptuk, satöbbi)
 - **dokumentum darabszáma**: szám (mennyi van belőle)
 - **dokumentum típusa**:  jegy / bérlet / pass / műsorfüzet / jegyzőkönyv / újság / könyv / brosúra / plakát /  szerződés (játékos, szponzor, más egyesülettel, etc) / (...)  / egyéb
 - **dokumentum keletkezésének ideje**:
-  - bizonytalan: igen/nem
-    - **HA IGEN**: szöveg (megközelítőleg)
-    - **HA NEM**:
-      - év: szám
-      - hónap.nap: szám.szám (a legtöbbnél csak évet tudunk)
+  - **ismert dátum**: igen/nem
+    - **HA IGEN**: év.hó.nap
+    - **HA NEM**: szöveg
 - **dokumentumhoz köthető emberek**: szöveg (pl. Tichy Lajos)
   - név1 / név2 / … / névN
+- **dedikált**: igen/nem
+  - **HA IGEN**: név1 / név2 / ... / névN
 - **hiányzó adat**: igen/nem (ha a dokumentumról nem tudunk valami komolyabbat, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
   - címke1 / címke2 / … / címkeN
