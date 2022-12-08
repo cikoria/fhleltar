@@ -397,3 +397,13 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
   - címke1 / címke2 / … / címkeN
 - **leírás**: hosszú szöveg (szabadszavas mező)
+
+
+```mermaid
+graph LR
+A[Square Rect] -- Link text --> B((Circle))
+A --> C(Round Rect)
+B -- helló --> D{Rhombus}
+A --> D
+C --> D
+```
