@@ -332,7 +332,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
   - **ismert dátum**: igen/nem
     - **HA IGEN**: év.hó.nap
     - **HA NEM**: szöveg
-- **képen szereplő emberek (képeslapnál: aláírások)**: 
+- **képen szereplő emberek (képeslapnál: aláírások)**:
   - **elemszám**: szám (mennyi ember/aláírás van a képen)
   - **nevek**: név1 / név2 / ... / névN
 - **dedikált**: igen/nem
@@ -362,7 +362,7 @@ A rekordok adatlapján **csak** azok az adatok kerülnek listázásra, amelyek k
     - **HA NEM**: szöveg
 - **a tárgyhoz köthető emberek**: szöveg (pl. Tichy Lajos)
   - név1 / név2 / … / névN
-- **ellenféltől kapott tárgy**: igen/nem 
+- **ellenféltől kapott tárgy**: igen/nem
   - **HA IGEN**: szöveg
 - **hiányzó adat**: igen/nem (ha a tárgyról nem tudunk valami komolyabbat, akkor a hiány: igen)
 - **címkék**: szöveg (egyelőre! aztán lehet, ebből is rendezett lista lesz)
